@@ -1,0 +1,13 @@
+.user{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    .userInfo{
+        width: 500px;
+    }
+    .userOrders{
+
+    }
+}
