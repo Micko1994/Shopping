@@ -16,8 +16,10 @@ class Product extends Component {
         productImage: '',
         description: '',
         previous_price: '',
-        current_price: ''
+        current_price: '',
+        file: null
     };
+
 
     static propTypes = {
         isAuthenticated: PropTypes.bool
@@ -32,17 +34,25 @@ class Product extends Component {
     onChange = e => {
         this.setState({ [e.target.name]: e.target.value });
     };
+    onChangeFile = e => {
+        this.setState({ file: e.target.files[0] })
+    }
 
     onSubmit = e => {
         e.preventDefault();
 
         const newProduct = {
             title: this.state.title,
-            productImage: this.state.productImage,
             description: this.state.description,
             previous_price: this.state.previous_price,
             current_price: this.state.current_price,
         };
+        this.fileUpload(this.state.file)
+            .then((response) => {
+                console.log(response.data);
+            })
+
+
 
         // Add item via addItem action
         this.props.addProduct(newProduct);
@@ -51,6 +61,11 @@ class Product extends Component {
         console.log("newProduct-", newProduct)
 
     };
+
+
+
+
+
 
     render() {
         return (
@@ -71,7 +86,7 @@ class Product extends Component {
                             name='productImage'
                             id='productImage'
                             placeholder='Product image Path'
-                            onChange={this.onChange}
+                            onChange={this.onChangeFile}
                         />
                         <Label for='description'>description</Label>
                         <Input
