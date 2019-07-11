@@ -84,7 +84,7 @@ class Header extends Component {
 
         return (
             <div className='App'>
-                <Navbar color='dark' dark expand='sm' className='mb-5'>
+                <Navbar color='dark' dark expand='sm'>
                     <Container>
                         <NavbarBrand href='/'>Shopping Shirt</NavbarBrand>
                         <NavLink to="/create">Create</NavLink>

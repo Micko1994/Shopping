@@ -28,8 +28,8 @@ class Product extends Component {
         return (
             <div>
                 <div className="allProducts">
-                    {product.map(product => (
-                        <div className='product'>
+                    {product.map((product, index) => (
+                        <div className='product' key={index}>
                             <CardImg top width="100%" src={product.productImage} alt="Card image cap" />
                             <CardBody>
                                 <CardTitle>{product.title}</CardTitle>
